@@ -6,6 +6,38 @@
     height: 100%;
 }
 
+.back__button{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+ion-button .forward__button ion-icon {
+
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+   
+  }
+
+
+
+  .forward__button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    font-size: 15px;
+ 
+  }
+
+
+.bb{
+    background-color: #84e900;
+}
+
 .section {
     display: flex;
     flex-direction: column;
