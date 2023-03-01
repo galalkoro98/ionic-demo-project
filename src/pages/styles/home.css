@@ -1,5 +1,7 @@
-.background {
-    background: linear-gradient(180deg, #3366ff, #6600cc);
+
+
+  .ion-page {
+    --ion-background-color: linear-gradient(180deg, #3366ff, #6600cc);
     background-size: cover;
     height: 100vh;
     position: relative;
@@ -9,11 +11,7 @@
     border-radius: 21px;
   }
 
-  .ios{
-    background: linear-gradient(180deg, #3366ff, #6600cc);
-    background-size: cover;
-    border-radius: 21px;
-  }
+
   
   .background::before {
     content: "";
@@ -29,6 +27,23 @@
     border-radius: 50%;
     animation: pulse 1.5s linear infinite;
   }
+
+  .background::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+    animation: pulse 1.5s linear infinite;
+    animation-delay: 0.5s;
+  }
+
   
   @keyframes pulse {
     0% {
