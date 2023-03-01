@@ -1,8 +1,11 @@
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Landing } from './pages/landing';
-import { Questions } from './pages/Questions';
+
+import Home from './pages/Home';
+
+import { LevelOne } from './components/1-firstLevel/LevelOne';
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -21,7 +24,9 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 /* Theme variables */
-import './theme/variables.css';
+// import './theme/variables.css';
+// import './theme/general.css';
+import './App.css'
 
 setupIonicReact();
 
@@ -29,16 +34,34 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/landing">
-          <Landing />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/landing" />
-        </Route>
-        <Route exact path="/questions">
-          <Questions />
+        <Route exact path="/home">
+          <Home />
         </Route>
 
+        <Route exact path="/level1">
+          <LevelOne />
+        </Route>
+        <Route exact path="/level2">
+          {/* <LevelTwo /> */}
+        </Route>
+        <Route exact path="/level3">
+          {/* <LevelThree /> */}
+        </Route>
+        <Route exact path="/level4">
+          {/* <LevelFour /> */}
+        </Route>
+        <Route exact path="/level5">
+          {/* <LevelFive /> */}
+        </Route>
+        <Route exact path="/level6">
+          {/* <LevelSix /> */}
+        </Route>
+        <Route exact path="/level7">
+          {/* <LevelSeven /> */}
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/home" />
+        </Route>
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
