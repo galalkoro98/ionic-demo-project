@@ -39,7 +39,7 @@ import './App.css'
 setupIonicReact();
 
 const App: React.FC = () => (
-  <IonApp>
+  <IonApp className='IonApp'>
     <IonReactRouter>
       <IonRouterOutlet>
         <Route exact path="/home">
