@@ -1,9 +1,11 @@
 import React from 'react';
 
-import { IonPage, IonContent, IonButton } from '@ionic/react';
+import { IonPage, IonContent, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle } from '@ionic/react';
 import { Link } from 'react-router-dom';
-import './home.css';
+import './styles/home.css';
 import { useSpring, animated } from 'react-spring';
+
+
 
 const Home: React.FC = () => {
 
@@ -18,8 +20,17 @@ const Home: React.FC = () => {
             <IonContent fullscreen>
                 <div className="background">
                     <div className="ion-text-center ion-padding">
-                        <animated.h1 style={textAnimation}>Welcome to My Game</animated.h1>
-                        <animated.p style={textAnimation}>Choose your level:</animated.p>
+                        <IonCard>
+                            <img alt="Silhouette of mountains" src="../../assets/icon/welcome.jpg" />
+                            <IonCardContent>
+                                <IonCardHeader>
+                                    <IonCardTitle color="secondary" >
+                                        <animated.h1 style={textAnimation}>To our Quiz Game</animated.h1>
+                                    </IonCardTitle>
+                                </IonCardHeader>
+                            </IonCardContent>
+                        </IonCard>
+                        <animated.h2 style={textAnimation}>Choose your level:</animated.h2>
                         <Link to="/level1">
                             <IonButton color="primary" className="ion-margin-top">
                                 Level 1
