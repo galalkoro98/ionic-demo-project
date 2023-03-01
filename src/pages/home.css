@@ -1,7 +1,7 @@
 .background {
     background: linear-gradient(180deg, #3366ff, #6600cc);
     background-size: cover;
-    height: 9vh;
+    height: 100vh;
     position: relative;
     display: grid;
     place-items: center;

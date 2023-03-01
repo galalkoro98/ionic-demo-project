@@ -1,5 +1,6 @@
 import React from 'react';
-import { IonPage, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/react';
+
+import { IonPage, IonContent, IonButton } from '@ionic/react';
 import { Link } from 'react-router-dom';
 import './home.css';
 import { useSpring, animated } from 'react-spring';
@@ -14,9 +15,6 @@ const Home: React.FC = () => {
 
     return (
         <IonPage>
-            <IonToolbar>
-                <IonTitle>My Game</IonTitle>
-            </IonToolbar>
             <IonContent fullscreen>
                 <div className="background">
                     <div className="ion-text-center ion-padding">
