@@ -20,6 +20,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/components/Levels/1/Question-1.tsx"
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.json",
+    "**/*.svg"
   ]
 }
