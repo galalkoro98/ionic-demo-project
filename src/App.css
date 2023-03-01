@@ -1,0 +1,10 @@
+ion-app{
+    --ion-background-color: linear-gradient(180deg, #3366ff, #6600cc);
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 21px;
+}
