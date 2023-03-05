@@ -1,17 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { IonPage, IonContent, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle } from '@ionic/react';
 
 
 export const Level6: React.FC = () => {
-    const [showLevelOne, setShowLevelOne] = useState(false);
-
-    const handleClick = () => {
-        setShowLevelOne(true);
-    };
-
-    if (showLevelOne) {
-        return <div></div>
-    }
+   
 
     return (
         <IonPage>
@@ -33,7 +25,7 @@ export const Level6: React.FC = () => {
                         <IonButton color="primary" className="ion-margin-top" routerLink="/level5">
                             Back
                         </IonButton>
-                        <IonButton color="primary" className="ion-margin-top" onClick={handleClick}>
+                        <IonButton color="primary" className="ion-margin-top" >
                             Start Level 6
                         </IonButton>
                         <IonButton color="primary" className="ion-margin-top" routerLink="/level7">

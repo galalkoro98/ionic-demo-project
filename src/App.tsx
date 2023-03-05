@@ -1,8 +1,9 @@
+import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
-import Home from './pages/Home';
+import { Home } from './pages/Home';
 import { Level1 } from './pages/Level1';
 import { Level2 } from './pages/Level2';
 import { Level3 } from './pages/Level3';
@@ -10,9 +11,6 @@ import { Level4 } from './pages/Level4';
 import { Level5 } from './pages/Level5';
 import { Level6 } from './pages/Level6';
 import { Level7 } from './pages/Level7';
-
-
-
 
 
 /* Core CSS required for Ionic components to work properly */
