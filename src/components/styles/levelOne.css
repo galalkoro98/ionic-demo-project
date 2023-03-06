@@ -1,0 +1,55 @@
+.container__level__one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: fit-content;
+    margin: 0 auto;
+}
+
+ .container__level__one h1 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.container__level__one p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+
+
+.container__level__one li {
+    margin: 0.1rem 0;
+    height: max-content;
+    max-width: 100%;
+}
+
+.container__level__one ion-button {
+    font-size: 1.2rem;
+    margin: 0.1rem;
+    white-space: normal;
+  word-wrap: break-word;
+} 
+
+.option{
+    width: auto;
+}
+
+ion-button {
+    --background: #a74040;
+    --background-activated: #f5f5f5;
+    --background-hover: #10f009;
+}
+
+.container__level__one ul {
+    list-style: none;
+    margin: 0.5rem 0;
+    padding: 0;
+    text-align: center;
+    background-color: #000000;
+}
