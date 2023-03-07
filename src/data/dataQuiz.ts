@@ -4,7 +4,7 @@ import { shuffleArray } from "../helper/Helper";
 
 interface Quiz {
     question: string;
-    options?: string[];
+    options: string[];
     answer?: string;
     answerInput?: boolean;
     isTrue?: boolean;
@@ -136,16 +136,103 @@ const quizData: Level[] = [
         levelNumber: 3,
         quizzes: [
             {
-                question: "Is this <img> tag is used to embed images in an HTML document",
-                isTrue: true,
+                question: "The <img> tag is used to embed images in an HTML document.(True/False)",
+                options: shuffleArray([
+                    "True",
+                    "False"
+                ]),
+                answer: "True",
             },
             {
-                question: "Is this <a> tag is used to define a hyperlink in HTML?",
-                isTrue: true,
+                question: "The <a> tag is used to define a hyperlink in an HTML document.(True/False)",
+                options: shuffleArray([
+                    "True",
+                    "False"
+                ]),
+                answer: "True",
+            },
+            {
+                question: "The <pa> tag is used to define a paragraph in an HTML document.(True/False)",
+                options: shuffleArray([
+                    "True",
+                    "False"
+                ]),
+                answer: "False",
+            },
+            {
+                question: "The <ul> tag is used to define an unordered list in an HTML document.(True/False)",
+                options: shuffleArray([
+                    "True",
+                    "False"
+                ]),
+                answer: "True",
+            },
+            {
+                question: "The <ol> tag is used to define an ordered list in an HTML document.(True/False)",
+                options: shuffleArray([
+                    "True",
+                    "False"
+                ]),
+                answer: "True",
+            }
+        ],
+    },
+    {
+        levelNumber: 4,
+        quizzes: [
+            {
+                question: "What does CSS stand for?",
+                options: shuffleArray([
+                    "Computer Style Sheets",
+                    "Colorful Style Sheets",
+                    "Creative Style Sheets",
+                    "Cascading Style Sheets"
+                ]),
+                answer: "Cascading Style Sheets",
+            },
+            {
+                question: "Where in an HTML document is the correct place to refer to an external style sheet?",
+                options: shuffleArray([
+                    "In the <head> section",
+                    "In the <body> section",
+                    "At the end of the document",
+                    "You can't refer to an external style sheet"
+                ]),
+                answer: "In the <head> section",
+            },
+            {
+                question: "Which HTML tag is used to define an internal style sheet?",
+                options: shuffleArray([
+                    "<style>",
+                    "<script>",
+                    "<css>",
+                    "<styles>"
+                ]),
+                answer: "<style>",
+            },
+            {
+                question: "Which HTML attribute is used to define inline styles?",
+                options: shuffleArray([
+                    "font",
+                    "class",
+                    "style",
+                    "styles"
+                ]),
+                answer: "style",
+            },
+            {
+                question: "Which is the correct CSS syntax?",
+                options: shuffleArray([
+                    "body:color=black;",
+                    "{body;color:black;}",
+                    "body {color: black;}",
+                    "{body:color=black;}"
+                ]),
+                answer: "body {color: black;}",
             }
         ]
-    },
-    // ... more levels
+    }
+
 ];
 
 export default quizData;

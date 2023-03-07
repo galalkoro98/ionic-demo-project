@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 100%;
     height: fit-content;
     margin: 0 auto;
 }
@@ -16,7 +16,7 @@
 }
 
 .container__level__one p {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     margin: 0.5rem 0;
     text-align: center;
 }
@@ -30,7 +30,7 @@
 }
 
 .container__level__one ion-button {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0.1rem;
     white-space: normal;
   word-wrap: break-word;
@@ -41,7 +41,6 @@
 }
 
 ion-button {
-    --background: #a74040;
     --background-activated: #f5f5f5;
     --background-hover: #10f009;
 }
@@ -51,5 +50,5 @@ ion-button {
     margin: 0.5rem 0;
     padding: 0;
     text-align: center;
-    background-color: #000000;
+  
 }
