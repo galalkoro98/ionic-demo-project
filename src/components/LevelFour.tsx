@@ -56,6 +56,7 @@ export const LevelFour: React.FC = () => {
             <h1>Level four</h1>
             <p>Score: {score}</p>
             <p>Question: {currentQuiz.question}</p>
+            <p>Note: drag the write option and drop in the white area</p>
             <ul>
                 {currentQuiz.options ? (
                     currentQuiz.options.map((option, index) => (
