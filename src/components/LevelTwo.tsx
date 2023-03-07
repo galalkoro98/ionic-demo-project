@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { IonButton, IonInput } from "@ionic/react";
 import { useQuizGame } from "../hooks/Levels";
 
+import './styles/levelTwo.css'
+
 export const LevelTwo: React.FC = () => {
     const {
         currentQuiz,
@@ -38,12 +40,15 @@ export const LevelTwo: React.FC = () => {
 
     return (
         <>
+            <h1>Level two</h1>
             <h3>{currentQuiz.question}</h3>
             {showError && <p>Incorrect answer. Please try again.</p>}
             <IonInput
                 value={userAnswer}
                 placeholder="Your answer"
                 onIonChange={(e) => setUserAnswer(e.detail.value!)}
+
+
             />
             <IonButton onClick={handleAnswerClick}>Check Answer</IonButton>
             <p>Score: {score}</p>
