@@ -6,6 +6,7 @@ interface Quiz {
     question: string;
     options: string[];
     answer?: string;
+    hint?: string;
     answerInput?: boolean;
     isTrue?: boolean;
 }
@@ -85,6 +86,7 @@ const quizData: Level[] = [
         quizzes: [
             {
                 question: "What is the element used to define a paragraph in HTML?",
+                hint: "the <p> tag is the element that let user write and paragraph",
                 options: [
                     "<p>",
                     "<paragraph>",
@@ -97,6 +99,7 @@ const quizData: Level[] = [
             },
             {
                 question: "What is the attribute used to define the alternate text for an image in HTML?",
+                hint: "alt is the attribute use to define alternate text for an image in HTML",
                 options: [
                     "alt",
                     "src",
