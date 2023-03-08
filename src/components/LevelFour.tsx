@@ -17,75 +17,57 @@ export const LevelFour: React.FC = () => {
     const [answerShown, setAnswerShown] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
-    const handleDragStart = (event: React.DragEvent<HTMLDivElement>, option: string) => {
-        if (event.dataTransfer) {
-            event.dataTransfer.setData("option", option);
-            event.currentTarget.classList.add("dragging");
+    const handleAnswerClick = (selectedOption: string) => {
+        const isCorrect = handleAnswer(selectedOption);
+        setSelectedAnswer(selectedOption);
+        setAnswerShown(true);
+        if (!isCorrect) {
+            alert('Incorrect! Try again.');
         }
-    };
+    }
 
-    const handleDrop: React.DragEventHandler<HTMLDivElement> = (event) => {
-        if (event.dataTransfer) {
-            const option = event.dataTransfer.getData("option");
-            const isCorrect = handleAnswer(option);
-            if (!isCorrect) {
-                alert("Incorrect answer. Try again.");
-            } else {
-                setAnswerShown(true);
-
-                if (isLastQuiz) {
-                    alert("You've completed the quiz!");
-                } else {
-                    alert("Correct answer!");
-                }
-            }
-        }
-    };
-
-    const handleNextQuestion = () => {
-        setSelectedAnswer(null); // reset selectedAnswer to null
+    const resetAnswers = () => {
         setAnswerShown(false);
-        goToNextQuiz();
+        setSelectedAnswer(null);
+    }
 
-    };
-
-
+    if (isLastQuiz) {
+        return (
+            <div>
+                <h1>Congratulations! You have completed all quizzes in level four.</h1>
+            </div>
+        );
+    }
 
     return (
         <div className="container__level__four">
             <h1>Level four</h1>
             <p>Score: {score}</p>
             <p>Question: {currentQuiz.question}</p>
-            <p>Note: drag the write option and drop in the white area</p>
-            <ul>
-                {currentQuiz.options ? (
-                    currentQuiz.options.map((option, index) => (
-                        <li key={index}>
-                            <div
-                                className="option__drop"
-                                draggable
-                                onDragStart={(event) => handleDragStart(event, option)}
-                            >
-                                {option}
-                            </div>
-                        </li>
-                    ))
-                ) : null}
-            </ul>
-            <div
-                className="question"
-                onDrop={handleDrop}
-                onDragOver={(event) => event.preventDefault()}
-            >
-                <IonCard className="drop__card">
-                    {answerShown && selectedAnswer ? currentQuiz.answer : currentQuiz.question}
-                </IonCard>
-            </div>
-            {!isLastQuiz ? (
-                <IonButton onClick={handleNextQuestion}>Next question</IonButton>
-            ) : null}
+            <IonCard>
+                <ul>
+                    {currentQuiz.options ? (
+                        currentQuiz.options.map((option, index) => (
+                            <li key={index}>
+                                <IonButton
+                                    onClick={() => handleAnswerClick(option)}
+                                    disabled={answerShown}
+                                    color={selectedAnswer === option ? 'success' : 'primary'}
+                                >
+                                    {option}
+                                </IonButton>
+                            </li>
+                        ))
+                    ) : null}
+
+                </ul>
+            </IonCard>
+            <IonButton onClick={() => { goToNextQuiz(); resetAnswers(); }} disabled={!answerShown}>Next</IonButton>
         </div>
-    )
+    );
+
+
+
 };
 
 
