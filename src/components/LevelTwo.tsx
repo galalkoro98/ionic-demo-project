@@ -15,11 +15,13 @@ export const LevelTwo: React.FC = () => {
 
     const [userAnswer, setUserAnswer] = useState("");
     const [showError, setShowError] = useState(false);
+    const [showHint, setShowHint] = useState(false);
 
     const handleAnswerClick = () => {
         const isCorrect = handleAnswer(userAnswer);
         if (isCorrect) {
             setShowError(false);
+            setShowHint(false);
             setUserAnswer("");
             if (isLastQuiz) {
                 // If this is the last quiz, go to the next level
@@ -32,26 +34,33 @@ export const LevelTwo: React.FC = () => {
             }
         } else {
             setShowError(true);
+            setShowHint(true);
             setTimeout(() => {
                 setShowError(false);
             }, 1000);
         }
     };
 
+    const handleHintClick = () => {
+        setShowHint(true);
+    };
+
     return (
-        <>
+
+        <div className="level__two__container">
             <h1>Level two</h1>
             <h3>{currentQuiz.question}</h3>
-            {showError && <p>Incorrect answer. Please try again.</p>}
-            <IonInput
+            {showError && <p className="error">Incorrect! Try again.</p>}
+            <p>Enter your answer:</p>
+            <IonInput className="input__background"
                 value={userAnswer}
-                placeholder="Your answer"
                 onIonChange={(e) => setUserAnswer(e.detail.value!)}
-
-
             />
-            <IonButton onClick={handleAnswerClick}>Check Answer</IonButton>
+            <IonButton onClick={handleAnswerClick}>Submit</IonButton>
+            {!showHint && <IonButton onClick={handleHintClick}>Hint</IonButton>}
+            {showHint && <p>Hint: {currentQuiz.hint}</p>}
             <p>Score: {score}</p>
-        </>
+        </div>
+
     );
 };
