@@ -4,7 +4,6 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: fit-content;
     margin: 0 auto;
 }
 
@@ -16,18 +15,18 @@
 }
 
 .container__level__one p {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     margin: 0.5rem 0;
     text-align: center;
+    color: #f5f5f5;
 }
 
 
 
 .container__level__one li {
     margin: 0.1rem 0;
-    height: max-content;
-    /* max-width: 100%; */
 }
+
 
 .container__level__one ion-button {
     font-size: 0.rem;
@@ -35,6 +34,7 @@
     white-space: normal;
     word-wrap: break-word;
     text-transform: lowercase;
+    color: #000000;
 }
 
 .option {
@@ -42,6 +42,7 @@
 }
 
 ion-button {
+    --background: #f5f5f5;
     --background-activated: #f5f5f5;
     --background-hover: #10f009;
 }

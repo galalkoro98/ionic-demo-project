@@ -1,33 +1,34 @@
-.dragging {
-    opacity: 0.5;
-    border: 1px solid gray;
+
+.container__level__four{
+    padding: 0;
+    margin: 0;
 }
 
-/* .question ion-card{
-    --background: white;
-    --border-radius: 0.5rem;
-    --box-shadow: 0 0 0 0;
-} */
-
-.drop__card{
-    --background: white;
-    --border-radius: 0.5rem;
-    height: 4em;
- 
+.container__level__four p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    color: #ffffff;
+    padding: 0;
+    margin: 0;
 }
 
 .container__level__four ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    
 }
 
-.option__drop{
-    background-color: blueviolet;
-    color: white;
-    padding: 0.5rem;
-    margin: 0.5rem;
+.container__level__four ul li {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.container__level__four ion-button {
+    text-transform: lowercase;
+    font-family: 'Roboto', sans-serif;
+    align-items: flex-start;
 
 }
+
