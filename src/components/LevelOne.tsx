@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 
 import { IonButton } from "@ionic/react";
@@ -32,13 +31,15 @@ export const LevelOne: React.FC<LevelOneProps> = ({ onQuizFinish }) => {
         if (isCorrect) {
             setTimeout(() => {
                 setAnswerCorrect(true);
-                if (answeredQuestions + 1 === 5) {
+                if (answeredQuestions === 5) {
                     setAllAnsweredCorrectly(true);
+                    window.alert("Congratulations! You answered all questions correctly.");
                 }
             }, 1000);
         } else {
             setTimeout(() => {
                 setAnswerCorrect(false);
+                window.alert("Incorrect answer. Please try again.");
             }, 1000);
         }
 
