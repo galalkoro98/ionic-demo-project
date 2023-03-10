@@ -4,7 +4,7 @@ import { shuffleArray } from "../helper/Helper";
 
 interface Quiz {
     question: string;
-    options: string[];
+    options?: string[];
     answer?: string;
     hint?: string;
     answerInput?: boolean;

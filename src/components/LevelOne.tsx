@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { IonButton, IonPage } from "@ionic/react";
+import { IonButton, } from "@ionic/react";
 
 import "./styles/levelOne.css";
 
@@ -15,64 +15,100 @@ export const LevelOne: React.FC<LevelOneProps> = ({ onQuizFinish }) => {
         currentQuiz,
         handleAnswer,
         score,
-        resetGame,
         goToNextQuiz,
         goToNextLevel,
+        isLastLevel,
         isLastQuiz,
+        answerCorrect
     } = useQuizGame(0, 0);
-    const [answerCorrect, setAnswerCorrect] = useState(true);
+
     const [answeredQuestions, setAnsweredQuestions] = useState(0);
     const [allAnsweredCorrectly, setAllAnsweredCorrectly] = useState(false);
 
-    const handleAnswerClick = (selectedOption: string) => {
-        const isCorrect = handleAnswer(selectedOption);
-        setAnswerCorrect(isCorrect);
-
-        if (isCorrect) {
-            setAnsweredQuestions(answeredQuestions + 1);
-            if (answeredQuestions === 4) {
-                setAllAnsweredCorrectly(true);
-                onQuizFinish();
-            } else {
-                setTimeout(() => {
-                    setAnswerCorrect(true);
-                }, 1000);
-            }
+    const handleAnswerClick = (selectOption: string) => {
+        handleAnswer(selectOption);
+        setAnsweredQuestions(answeredQuestions + 1);
+        if (answerCorrect) {
+          setAllAnsweredCorrectly(answeredQuestions === 4);
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+          score + 1 
+          
         } else {
-            setTimeout(() => {
-                setAnswerCorrect(false);
-                window.alert("Incorrect answer. Please try again.");
-            }, 1000);
+          setAllAnsweredCorrectly(false);
         }
     };
 
+    const handleNextClick = () => {
+        if (isLastLevel && isLastQuiz) {
+            onQuizFinish();
+        } else if (isLastQuiz) {
+            goToNextLevel();
+        } else {
+            goToNextQuiz();
+        }
+    }
+
     return (
         <>
-            <div className="container__level__one">
-                <h1>Level one</h1>
-                <p>Score: {score}</p>
-                <p>Question: {currentQuiz.question}</p>
-                <ul>
-                    {currentQuiz.options ? (
-                        currentQuiz.options.map((option, index) => (
-                            <li key={index}>
-                                <IonButton onClick={() => handleAnswerClick(option)}>
-                                    {option}
-                                </IonButton>
-                            </li>
-                        ))
-                    ) : null}
-                </ul>
-                {answerCorrect ? <p>Correct!</p> : <p>Incorrect!</p>}
-                {isLastQuiz ? (
-                    <IonButton onClick={goToNextLevel}>Next Level</IonButton>
-                ) : (
-                    <IonButton onClick={goToNextQuiz}>Next Question</IonButton>
+            <div className="quiz__container">
+                <div className="quiz__score">Score: {score}</div>
+                <div className="quiz__question">QUESTION: {currentQuiz.question}</div>
+                <div className="quiz__options">
+                    <ul>
+                        {
+                            currentQuiz.options ? (
+                                currentQuiz.options.map((option, index) => (
+                                    <li
+                                        key={index}
+                                        className={`quiz__option ${answeredQuestions > 0 && answerCorrect
+                                            ? "quiz__option--correct"
+                                            : answeredQuestions > 0 && !answerCorrect
+                                                ? "quiz__option--incorrect"
+                                                : ""
+                                            }`}
+                                        onClick={() => handleAnswerClick(option)}
+                                    >
+                                        <IonButton className="option">  {option}</IonButton>
+
+                                    </li>
+                                ))
+                            ) : (
+                                <li>loading...</li>
+                            )
+                        }
+                    </ul>
+
+                </div>
+                {answeredQuestions > 0 && (
+                    <div className="quiz__answer">
+                        {answerCorrect ? "Correct!" : "Incorrect!"}
+                    </div>
                 )}
-                {allAnsweredCorrectly ? (
-                    <p>Congratulations! You answered all questions correctly.</p>
-                ) : null}
+                {answeredQuestions > 0 && (
+                    <IonButton
+                        color="primary"
+                        className="quiz__next"
+                        onClick={handleNextClick}
+                    >
+                        {isLastLevel && isLastQuiz
+                            ? "Finish"
+                            : isLastQuiz
+                                ? "Next Level"
+                                : "Next Question"}
+                    </IonButton>
+                )}
+
+                {allAnsweredCorrectly && (
+                    <div className="quiz__congrats">Congratulations! You answered all questions correctly.</div>
+                )}
+
+
+
+
+
             </div>
+
         </>
     );
+
 };
