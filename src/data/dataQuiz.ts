@@ -112,6 +112,7 @@ const quizData: Level[] = [
             },
             {
                 question: "What is the element used to define a hyperlink in HTML?",
+                hint: "the element <a> is used to define a hyperlink in HTML",
                 options: [
                     "<a>",
                     "<link>",
@@ -123,6 +124,7 @@ const quizData: Level[] = [
             },
             {
                 question: "What is the element used to define a line break in HTML?",
+                hint: "the element <br> is used to define a line break in HTML",
                 options: [
                     "<br>",
                     "<break>",

@@ -6,15 +6,16 @@ import { LevelOne } from '../components/LevelOne'
 import { page } from '../hooks/customHooks';
 
 export const Level1: React.FC = () => {
-    const { showQuiz, startQuiz } = page()
-    
+    const { showQuiz, startQuiz, quizFinished, setQuizFinished } = page()
+
+
     return (
         <IonPage>
             <IonContent fullscreen>
                 <div className="background">
                     <div className="ion-text-center ion-padding">
                         {showQuiz ? (
-                            <LevelOne />
+                            <LevelOne onQuizFinish={() => setQuizFinished(true)} />
                         ) : (
                             <IonCard>
                                 <img alt="Silhouette of mountains" src="../../assets/icon/cover.jpg" />
@@ -27,7 +28,11 @@ export const Level1: React.FC = () => {
                             </IonCard>
                         )}
                         <IonButton color="primary" className="ion-margin-top" routerLink="/home"> Back</IonButton>
-                        <IonButton color="primary" className="ion-margin-top" type='button' onClick={startQuiz}>Start Level 1</IonButton>
+                        {quizFinished ? (
+                            <IonButton color="primary" className="ion-margin-top" type='button' onClick={startQuiz}>Restart Level 1</IonButton>
+                        ) : (
+                            <IonButton color="primary" className="ion-margin-top" type='button' onClick={startQuiz}>Start Level 1</IonButton>
+                        )}
                         <IonButton color="primary" className="ion-margin-top" routerLink="/level2"> Next Level</IonButton>
                     </div>
                 </div>
