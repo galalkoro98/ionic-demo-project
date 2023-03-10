@@ -7,12 +7,15 @@ import "./styles/levelOne.css";
 
 import { useQuizGame } from "../hooks/Levels";
 
-export const LevelOne: React.FC = () => {
+interface LevelOneProps {
+    onQuizFinish: () => void;
+}
+
+export const LevelOne: React.FC<LevelOneProps> = ({ onQuizFinish }) => {
     const {
         currentQuiz,
         handleAnswer,
         score,
-        resetGame,
         goToNextQuiz,
         goToNextLevel,
         isLastQuiz,
@@ -25,16 +28,19 @@ export const LevelOne: React.FC = () => {
         const isCorrect = handleAnswer(selectedOption);
         setAnswerCorrect(isCorrect);
 
+
         if (isCorrect) {
             setTimeout(() => {
                 setAnswerCorrect(true);
                 if (answeredQuestions + 1 === 5) {
                     setAllAnsweredCorrectly(true);
+                    onQuizFinish();
                 }
             }, 1000);
         } else {
             setTimeout(() => {
                 setAnswerCorrect(false);
+
             }, 1000);
         }
 
@@ -71,7 +77,6 @@ export const LevelOne: React.FC = () => {
                     )}
                 </div>
             ) : null}
-            <IonButton onClick={resetGame}>Reset game</IonButton>
         </div>
     );
 };

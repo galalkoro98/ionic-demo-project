@@ -24,10 +24,8 @@ export const LevelTwo: React.FC = () => {
             setShowHint(false);
             setUserAnswer("");
             if (isLastQuiz) {
-                // If this is the last quiz, go to the next level
                 goToNextQuiz();
             } else {
-                // Otherwise, go to the next quiz in this level
                 setTimeout(() => {
                     goToNextQuiz();
                 }, 1000);

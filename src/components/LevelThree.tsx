@@ -29,7 +29,6 @@ export const LevelThree: React.FC = () => {
         return (
             <div>
                 <h1>Congratulations! You have completed all quizzes in level three.</h1>
-                {/* <IonButton onClick={goToNextLevel}>Go to next level</IonButton> */}
             </div>
         );
     }

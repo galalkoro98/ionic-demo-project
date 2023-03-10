@@ -1,8 +1,5 @@
-// useQuizGame.ts
-
 import { useState } from "react";
 import quizData from "../data/dataQuiz";
-
 
 interface Quiz {
     question: string;
@@ -27,14 +24,11 @@ export const useQuizGame = (initialLevelIndex = 0, initialQuizIndex = 0) => {
 
     const currentQuiz: Quiz = currentLevel.quizzes[quizIndex];
 
-    const handleAnswer = (selectedOption: string | boolean )  => {
+    const handleAnswer = (selectedOption: string | boolean) => {
         if (selectedOption === currentQuiz.answer) {
             setScore(score + 1);
-            // setAnswerCorrect(true);
             return true;
-
         } else {
-            // setAnswerCorrect(false);
             return false;
         }
     };
@@ -53,7 +47,7 @@ export const useQuizGame = (initialLevelIndex = 0, initialQuizIndex = 0) => {
 
     const goToNextLevel = () => {
         setLevelIndex(levelIndex + 1);
-        setQuizIndex(0); // reset quiz index when moving to next level
+        setQuizIndex(0);
         setAnswerCorrect(true);
     };
 

@@ -1,6 +1,6 @@
 .container__level__three ul {
     list-style: none;
-    padding: 0;
+    padding: 50px;
     margin: 0;
     display: flex;
     flex-direction: row;
@@ -11,5 +11,18 @@
 .container__level__three li {
     margin: 0 10px;
    
+}
+
+.container__level__three p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+.container__level__three ion-button {
+    color: black;
 }
 
