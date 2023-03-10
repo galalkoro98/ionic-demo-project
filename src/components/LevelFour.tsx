@@ -62,7 +62,7 @@ export const LevelFour: React.FC = () => {
 
                 </ul>
             </IonCard>
-            <IonButton onClick={() => { goToNextQuiz(); resetAnswers(); }} disabled={!answerShown}>Next</IonButton>
+            <IonButton className="next" onClick={() => { goToNextQuiz(); resetAnswers(); }} disabled={!answerShown}>Next</IonButton>
         </div>
     );
 

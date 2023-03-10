@@ -22,3 +22,7 @@
     margin: 0;
 }
 
+.container__level__three ion-button {
+    color: black;
+}
+
