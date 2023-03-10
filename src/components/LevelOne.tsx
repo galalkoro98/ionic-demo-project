@@ -29,12 +29,12 @@ export const LevelOne: React.FC<LevelOneProps> = ({ onQuizFinish }) => {
         handleAnswer(selectOption);
         setAnsweredQuestions(answeredQuestions + 1);
         if (answerCorrect) {
-          setAllAnsweredCorrectly(answeredQuestions === 4);
-          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-          score + 1 
-          
+            setAllAnsweredCorrectly(answeredQuestions === 5);
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+            score + 1
+
         } else {
-          setAllAnsweredCorrectly(false);
+            setAllAnsweredCorrectly(false);
         }
     };
 
