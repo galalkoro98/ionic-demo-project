@@ -5,6 +5,8 @@ import './styles/level.css'
 import { LevelOne } from '../components/LevelOne'
 import { page } from '../hooks/customHooks';
 
+
+
 export const Level1: React.FC = () => {
     const { showQuiz, startQuiz, quizFinished, setQuizFinished } = page()
 

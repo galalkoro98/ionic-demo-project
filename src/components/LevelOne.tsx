@@ -16,6 +16,7 @@ export const LevelOne: React.FC<LevelOneProps> = ({ onQuizFinish }) => {
         currentQuiz,
         handleAnswer,
         score,
+        resetGame,
         goToNextQuiz,
         goToNextLevel,
         isLastQuiz,
@@ -28,19 +29,16 @@ export const LevelOne: React.FC<LevelOneProps> = ({ onQuizFinish }) => {
         const isCorrect = handleAnswer(selectedOption);
         setAnswerCorrect(isCorrect);
 
-
         if (isCorrect) {
             setTimeout(() => {
                 setAnswerCorrect(true);
                 if (answeredQuestions + 1 === 5) {
                     setAllAnsweredCorrectly(true);
-                    onQuizFinish();
                 }
             }, 1000);
         } else {
             setTimeout(() => {
                 setAnswerCorrect(false);
-
             }, 1000);
         }
 
@@ -63,20 +61,21 @@ export const LevelOne: React.FC<LevelOneProps> = ({ onQuizFinish }) => {
                     ))
                 ) : null}
             </ul>
-            {!answerCorrect && <p>Incorrect! Try again.</p>}
-            {answerCorrect && !isLastQuiz ? (
-                <IonButton onClick={goToNextQuiz}>Next question</IonButton>
+            {answerCorrect ? (
+                <p>Correct!</p>
+            ) : (
+                <p>Incorrect!</p>
+            )}
+            {isLastQuiz ? (
+                <IonButton onClick={goToNextLevel}>Next Level</IonButton>
+            ) : (
+                <IonButton onClick={goToNextQuiz}>Next Question</IonButton>
+            )}
+            {allAnsweredCorrectly ? (
+                <IonButton onClick={goToNextLevel}>Next Level</IonButton>
             ) : null}
-            {answerCorrect && isLastQuiz && answeredQuestions === 5 ? (
-                <div>
-                    {allAnsweredCorrectly && (
-                        <>
-                            <p>Congratulations, you have finished Level One!</p>
-                            <IonButton onClick={goToNextLevel}>Go to next level</IonButton>
-                        </>
-                    )}
-                </div>
-            ) : null}
+            <IonButton onClick={resetGame}>Reset Game</IonButton>
+
         </div>
     );
 };
